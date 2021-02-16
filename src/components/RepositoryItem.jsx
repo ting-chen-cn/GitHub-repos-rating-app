@@ -1,15 +1,8 @@
 import React from 'react';
-import {  View,  StyleSheet, Text, StatusBar } from 'react-native';
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
-  }
-});
+import {  View,  Text } from 'react-native';
 
 const Item = ({ item }) => (
-  <View style={styles.container}>
+  <View >
     <Text >FullName: {item.fullName}</Text>
     <Text >Description:{item.description}</Text>
     <Text >Language: {item.language}</Text>
