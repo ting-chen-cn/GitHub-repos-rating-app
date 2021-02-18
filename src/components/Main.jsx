@@ -4,7 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import { Route, Switch, Redirect } from 'react-router-native';
 import AppBar from './AppBar';
 import theme from '../theme';
-import SignIn from './SignIn';
+import SignIn from './SignIn/index';
 
 const styles = StyleSheet.create({
   container: {
