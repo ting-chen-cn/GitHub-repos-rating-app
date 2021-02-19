@@ -13,8 +13,11 @@ const useSignIn = () => {
     const response= await mutate({
       variables: { username, password },
     });
-    await authStorage.setAccessToken(response.data.authorize.accessToken);
-    client.resetStore();
+    const { data } = response;
+    if (data && data.authorize) {
+      await authStorage.setAccessToken(data.authorize.accessToken);
+      client.resetStore();
+    }
     return response;
   };
 

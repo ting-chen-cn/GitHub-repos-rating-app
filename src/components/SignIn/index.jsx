@@ -1,9 +1,6 @@
 import React from 'react';
-import { Formik} from 'formik';
-import { View } from 'react-native';
 import { useHistory } from "react-router-native";
-import { validationSchema, initialValues } from './FormHelper';
-import { SignInForm } from './SignInForm';
+import { SignInContainer } from './SignInForm';
 import useSignIn from '../../hooks/useSignIn';
 
 
@@ -20,15 +17,7 @@ const SignIn = () => {
       console.log(e);
     }
 };
-  return (
-    <View>
-      <Formik initialValues={initialValues} onSubmit={onSubmit}validationSchema={validationSchema}>
-        {({ handleSubmit }) => <SignInForm onSubmit={handleSubmit} />}
-      </Formik>
-      
-    </View>
-
-  );
+  return <SignInContainer onSubmit={onSubmit} />;
 };
 
 export default SignIn;

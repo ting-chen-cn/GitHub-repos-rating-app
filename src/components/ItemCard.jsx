@@ -52,8 +52,8 @@ const CardHeader = ({item}) => {
         <Image style={cardHeaderStyles.avatar} source={{uri: item.ownerAvatarUrl}} />
       </View>
       <View style={cardHeaderStyles.infoContainer}>
-        <Text fontWeight="bold" fontSize="subheading">{ item.fullName}</Text>
-        <Text color="textSecondary">{ item.description}</Text>
+        <Text fontWeight="bold" fontSize="subheading" testID='fullName' >{ item.fullName}</Text>
+        <Text color="textSecondary" testID='description' >{ item.description}</Text>
       </View>
     </View>
   );
@@ -63,7 +63,7 @@ const CardHeader = ({item}) => {
 const CardBody = ({item}) => {
   return (
     <View style={cardBodyStyles.container}>
-      <Text color="textWhite" >
+      <Text color="textWhite" testID='language' >
         {item.language}
       </Text>
     </View>
@@ -78,7 +78,7 @@ const CardFooterAction = ({ text, value }) => {
   };
   return (
     <View>
-      <Text color="textSecondary" >{parseNumber(value)}</Text>
+      <Text color="textSecondary" testID={text} >{parseNumber(value)}</Text>
       <Text color="textSecondary" style={cardFooterStyles.actionText}>{text}</Text> 
     </View>
   );
@@ -87,13 +87,13 @@ const CardFooterAction = ({ text, value }) => {
 const CardFooter = ({item}) => {
   return (
       <View style={cardFooterStyles.container}>
-      <CardFooterAction text='Stars' value={item.stargazersCount} >
+      <CardFooterAction text='Stars' value={item.stargazersCount}  >
       </CardFooterAction>
-      <CardFooterAction text='Forks' value={item.forksCount}>
+      <CardFooterAction text='Forks' value={item.forksCount}  >
       </CardFooterAction>
-      <CardFooterAction text='Reviews' value={item.reviewCount}>
+      <CardFooterAction text='Reviews' value={item.reviewCount}  >
       </CardFooterAction>
-      <CardFooterAction text='Rating' value={item.ratingAverage}>
+      <CardFooterAction text='Rating' value={item.ratingAverage}  >
       </CardFooterAction>
       </View>
 
