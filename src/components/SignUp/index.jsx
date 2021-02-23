@@ -1,18 +1,24 @@
 import React from 'react';
 import { useHistory } from "react-router-native";
+import { useMutation } from '@apollo/react-hooks';
 import { FormContainer } from './FormContainer';
-import useSignIn from '../../hooks/useSignIn';
+import {CREATE_USER} from '../../graphql/mutations';
 
 
 const SignIn = () => {
+  console.log(CREATE_USER);
   const history = useHistory();
-  const [signIn] = useSignIn();
+  const [mutate] = useMutation(CREATE_USER);
 
   const onSubmit =async (values) => {
     const { username, password } = values;
+    console.log(username);
     try {
-      await signIn({ username, password });
-      history.push("/");
+      const res = await mutate({
+        variables: { username, password }
+      }  );
+      console.log(res);
+      history.push("/login");
     } catch (e) {
       console.log(e);
     }

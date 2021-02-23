@@ -1,6 +1,6 @@
 import theme from '../../theme';
 import { StyleSheet } from 'react-native';
-export const signInStyles = StyleSheet.create({
+export const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.colors.textWhite,
     padding: 15,
@@ -16,12 +16,4 @@ export const signInStyles = StyleSheet.create({
       paddingVertical: 15,
       paddingHorizontal: 10,
   },
-  buttonContainer: {
-      backgroundColor: theme.colors.primary,
-      alignItems: 'center',
-      flexGrow: 1,
-      padding: 17,
-      borderRadius: 3,
-      height: 50,
-    },
 });

@@ -28,13 +28,25 @@ const AppBar = () => {
         <Link to="/" component={AppBarTab}>
           Repositories
         </Link>
+        {authorizedUser
+          ?
+          (<Link to="/review" component={AppBarTab}>
+            Create Review
+          </Link>)
+          : null}
         {authorizedUser ? (
           <AppBarTab onPress={onSignOut}>Sign out</AppBarTab>
         ) : (
           <Link to="/signIn" component={AppBarTab}>
-            Sign in
-          </Link>
-        )}
+              Sign in
+            </Link>
+          )}
+        {!authorizedUser
+          ?
+          (<Link to="/signUp" component={AppBarTab}>
+            Sign up
+          </Link>)
+          : null}
       </ScrollView>
     </View>
   );
